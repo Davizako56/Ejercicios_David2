@@ -13,6 +13,7 @@ public class Menu {
     public static void menu() {
         Scanner entrada = new Scanner(System.in);
 
+        contador = 0;
         int num;
         String[] modo = {"Dígitos","Potencias","Del Revés","Binario","A binario","Orden alfabético","Mostrar suma"};
         String opcion;
@@ -30,6 +31,27 @@ public class Menu {
 
             case 1:
                 Ejr1();
+                while(true) {
+                    System.out.println("Elige una opción:");
+                    System.out.println("   [M] - Volver al menú principal");
+                    System.out.println("   [X] - Salir");
+                    opcion = entrada.next();
+
+                    switch(opcion.toUpperCase()) {
+
+                        case "M":
+                            System.out.flush();
+                            menu();
+
+                        case "X":
+                            System.exit(0);
+                    }
+
+                    System.out.println("ERROR: El programa no admite otra letra");
+                }
+
+            case 2:
+                Ejr2();
                 while(true) {
                     System.out.println("Elige una opción:");
                     System.out.println("   [M] - Volver al menú principal");
@@ -75,6 +97,42 @@ public class Menu {
             contador++;
             Division(num);
         }
+    }
+
+    public static void Ejr2() {
+        Scanner entrada = new Scanner(System.in);
+
+        int num = -1;
+        int exp = -1;
+
+        while(num < 0 || exp < 0) {
+            System.out.println("Inserte el número a elevar");
+            num = entrada.nextInt();
+            System.out.println("Ahora inserte su exponente");
+            exp = entrada.nextInt();
+        }
+
+        int mun = num;
+
+        Potencia(num,exp,mun);
+
+    }
+
+    public static void Potencia(int num, int exp, int mun) {
+
+        if(exp == 0) {
+            System.out.println("El resultado es 1");
+        }else{
+
+            if (contador == exp - 1) {
+                System.out.println("El resultado es: " + num);
+            }else{
+                contador++;
+                num *= mun;
+                Potencia(num,exp,mun);
+            }
+        }
+
     }
 
 }
