@@ -70,6 +70,8 @@ public class Menu {
 
                     System.out.println("ERROR: El programa no admite otra letra");
                 }
+
+            case 3:
         }
     }
 
@@ -133,6 +135,29 @@ public class Menu {
             }
         }
 
+    }
+
+    public static void Ejr3() {
+        Scanner entrada = new Scanner(System.in);
+
+        String num;
+
+        System.out.println("Introduzca un número");
+        num = entrada.next();
+
+        while(num.length() != 2) {
+            System.out.println("ERROR: El programa solo admite números de dos cifras");
+            System.out.println("Introduzca un número");
+            num = entrada.next();
+        }
+
+        int mun = Integer.parseInt(num);
+
+
+    }
+
+    public static void Div(mun) {
+        
     }
 
 }
